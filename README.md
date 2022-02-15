@@ -28,7 +28,7 @@ mvn clean test
   * src/main/java
     - pages.BookAFlight
     - utils
-    -BaseTest
+    - BaseTest
   * src/main/resources
     - config.properties 
   * src/test/java
