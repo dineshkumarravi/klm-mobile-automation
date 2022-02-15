@@ -5,10 +5,21 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+/**
+ * Test utility class common reusable method implementation.
+ * @author Dineshkumar.
+ *
+ */
 
 public class TestUtils extends BaseTest {
+
 	public static final long WAIT = 10;
 
+	/**
+	 * Get the next future date from the current date based on number of days.
+	 * @param daysToAdvance number of days.
+	 * @return date
+	 */
 	public static int getNextDate(int daysToAdvance){
 		int date = 0;
 		try{
@@ -24,6 +35,10 @@ public class TestUtils extends BaseTest {
 		return date;
 	}
 
+	/**
+	 * Get the datetime format.
+	 * @return date
+	 */
 	public String dateTime() {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
 		Date date = new Date();

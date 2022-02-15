@@ -10,7 +10,7 @@ cd klm-mobile-automation
 mvn clean test
 
 ```
-**(2) Ncessary Libraries and Software on Windows machine:** 
+**(2) Necessary Libraries and Software on Windows machine:** 
 
 ```
 (1) Install Java - openjdk11 and Maven
@@ -23,7 +23,19 @@ mvn clean test
 (6) Use adb commands to check device details and retrieve package/activity name
 
 ```
-**(3) run test from different area:** 
+**(3) run test from different area:**
+  *src/main/java
+    - pages.BookAFlight
+    - utils
+    -BaseTest
+  *src/main/resources
+    - config.properties 
+  *src/test/java
+    - BookAFlightTests
+  *src/test/resources
+       - data
+...
+**(4) run test from different area:** 
 ```
 * Once we copy this project on local system either we can run the test cases from command line 
   or from any IDE of your preference. In Eclipse IDE we can right click on textng.xml inside 

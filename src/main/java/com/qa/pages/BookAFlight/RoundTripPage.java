@@ -6,7 +6,11 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
 import java.util.List;
-
+/**
+ * Round Trip page class method implementation using page factory.
+ * @author Dineshkumar.
+ *
+ */
 public class RoundTripPage extends BaseTest {
 
     @AndroidFindBy(id = "com.afklm.mobile.android.gomobile.klm:id/origin_field")
@@ -45,6 +49,9 @@ public class RoundTripPage extends BaseTest {
     @AndroidFindBy(id = "com.afklm.mobile.android.gomobile.klm:id/calendar_footer_confirm_button")
     private MobileElement btnConfirmDates;
 
+    /**
+     * Enter Origin details in round trip page.
+     */
     public RoundTripPage enterOrigin(String origin) {
         clear(originField);
         click(originField);
@@ -54,6 +61,9 @@ public class RoundTripPage extends BaseTest {
         return this;
     }
 
+    /**
+     * Enter Arrival Destination details in round trip page.
+     */
     public RoundTripPage enterDestination(String destination) {
         clear(destinationField);
         click(destinationField);
@@ -62,6 +72,11 @@ public class RoundTripPage extends BaseTest {
             click(selectPlace);
         return this;
     }
+
+    /**
+     * Select the travel class.
+     * @param travelClass pass the travelClass from test.
+     */
 
     public RoundTripPage selectTravelClass(String travelClass) {
         click(selectCabin);
@@ -73,6 +88,12 @@ public class RoundTripPage extends BaseTest {
         }
         return this;
     }
+
+    /**
+     * Add the passengers.
+     * @param passengerGroupName pass the passenger group name from test.
+     * @param pCount pass the count from test.
+     */
 
     public RoundTripPage addPassengers(String passengerGroupName, String pCount) {
         int count = Integer.parseInt(pCount);
@@ -86,11 +107,19 @@ public class RoundTripPage extends BaseTest {
         }
         return this;
     }
-
+    /**
+     * Click continue button on round trip page.
+     */
     public RoundTripPage clickContinue() {
         click(btnContinue);
         return this;
     }
+
+    /**
+     * Choose the departure date based on the number of days from current date in advance.
+     * @param daysToAdvanceData pass the number of days from current date.
+     *
+     */
 
     public RoundTripPage chooseDepartureDate(String daysToAdvanceData) {
         int daysToAdvance = Integer.parseInt(daysToAdvanceData);
@@ -101,6 +130,11 @@ public class RoundTripPage extends BaseTest {
         return this;
     }
 
+    /**
+     * Choose the return date based on the number of days from current date in advance.
+     * @param daysToAdvanceData pass the number of days from current date.
+     *
+     */
     public RoundTripPage chooseReturnDate(String daysToAdvanceData) {
         int daysToAdvance = Integer.parseInt(daysToAdvanceData);
         int date = TestUtils.getNextDate(daysToAdvance);

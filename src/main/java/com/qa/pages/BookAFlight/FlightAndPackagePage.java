@@ -4,11 +4,14 @@ import com.qa.BaseTest;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.By;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
+/**
+ * Choose Flight and package page class method implementation using page factory.
+ * @author Dineshkumar.
+ *
+ */
 public class FlightAndPackagePage extends BaseTest {
 
     @AndroidFindBy(id = "com.afklm.mobile.android.gomobile.klm:id/flight_list_recycler_view")
@@ -29,6 +32,10 @@ public class FlightAndPackagePage extends BaseTest {
     @AndroidFindBy(id = "com.afklm.mobile.android.gomobile.klm:id/trip_destination")
     private MobileElement txtDestination;
 
+    /**
+     * Find minimum flight price by compare with flight prices list for choose the cheapest flight .
+     *
+     */
     public FlightAndPackagePage chooseCheapestOutboundFlight() {
         //get all the prices from the flight list
         waitForVisibility(flightList);
@@ -65,6 +72,11 @@ public class FlightAndPackagePage extends BaseTest {
         return this;
     }
 
+    /**
+     * Choose the package based on the package name provided from test .
+     * @param Package Package name from test.
+     */
+
     public FlightAndPackagePage choosePackage(String Package) {
         waitForVisibility(txtChoosePackage);
         swipeVertical();
@@ -74,12 +86,20 @@ public class FlightAndPackagePage extends BaseTest {
         return this;
     }
 
+    /**
+     * Get the origin details on passenger page .
+     * @return this origin name.
+     */
     public String getOriginDetails() {
         waitForVisibility(txtOrigin);
         String origin = getText(txtOrigin);
         return origin;
     }
 
+    /**
+     * Get the destination details on passenger page .
+     * @return this destination name.
+     */
     public String getDestinationDetails() {
         String destination = getText(txtDestination);
         return destination;

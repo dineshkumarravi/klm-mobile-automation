@@ -7,7 +7,6 @@ import com.relevantcodes.extentreports.LogStatus;
 import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.*;
-
 import java.io.IOException;
 import java.lang.reflect.Method;
 
@@ -16,15 +15,6 @@ public class BookAFlightTests extends BaseTest {
     RoundTripPage roundTripPage;
     FlightAndPackagePage flightAndPackagePage;
     JSONObject flightBookDetails;
-
-    @BeforeClass
-    public void beforeClass(){
-    }
-
-    @AfterClass
-    public void afterClass() {
-        closeApp();
-    }
 
     @BeforeMethod
     public void beforeMethod(Method m) throws IOException {
@@ -45,8 +35,8 @@ public class BookAFlightTests extends BaseTest {
             extentTest.log(LogStatus.INFO, "Select Premium Economy class");
             roundTripPage.addPassengers(flightBookDetails.getString("passengerGroupName"), flightBookDetails.getString("passengersCount"));
             extentTest.log(LogStatus.INFO, "Add two adults ");
-            roundTripPage.clickContinue();
-            roundTripPage.chooseDepartureDate(flightBookDetails.getString("departureDateInDaysToAdvance"));
+            roundTripPage.clickContinue()
+                         .chooseDepartureDate(flightBookDetails.getString("departureDateInDaysToAdvance"));
             extentTest.log(LogStatus.INFO, "Choose travel dates");
             roundTripPage.chooseReturnDate(flightBookDetails.getString("returnDateInDaysToAdvance"));
             flightAndPackagePage.chooseCheapestOutboundFlight();

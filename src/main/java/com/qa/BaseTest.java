@@ -34,6 +34,11 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
 import java.util.Properties;
+/**
+ * Common driver and mobile elements methods implementation in Base Test class.
+ * @author Dineshkumar.
+ *
+ */
 
 public class BaseTest {
     protected static AppiumDriver driver;
@@ -41,16 +46,26 @@ public class BaseTest {
     protected static ExtentReports extent;
     protected static ExtentTest extentTest;
 
+    /**
+     * Initialize the page class elements.
+     */
     public BaseTest() {
         PageFactory.initElements(new AppiumFieldDecorator(driver, Duration.ofSeconds(10)), this);
     }
 
+    /**
+     * Get appium driver instance.
+     * @return driver
+     */
     public AppiumDriver getDriver() {
         return driver;
     }
 
-    //For Mac - comment the below methods and start appium server manually
-    //below appium server starts methods are implemented only for Windows machine.
+    /**
+     * For Mac - comment the below methods and start appium server manually.
+     * For Windows - Below appium server starts programmatically.
+     *
+     */
     @BeforeSuite
     public void beforeSuite() throws Exception {
         server = getAppiumServerDefault();
@@ -77,6 +92,9 @@ public class BaseTest {
         return AppiumDriverLocalService.buildDefaultService();
     }
 
+    /**
+     * Stop the Appium server if it's running.
+     */
     @AfterSuite(alwaysRun = true)
     public void afterSuite() {
         if (server.isRunning()) {
@@ -84,6 +102,10 @@ public class BaseTest {
         }
     }
 
+    /**
+     * Configure device details via desired capabilities
+     * Initialize the android driver instance.
+     */
     @BeforeTest
     public void beforeTest() throws Exception {
         URL url;
@@ -136,45 +158,80 @@ public class BaseTest {
         }
     }
 
-    //Common MobileElement actions
-    public void click(MobileElement e) {
-        waitForVisibility(e);
-        e.click();
+    /**
+     * Click on Mobile element.
+     * @param element
+     */
+    public void click(MobileElement element) {
+        waitForVisibility(element);
+        element.click();
     }
 
-    public void sendKeys(MobileElement e, String txt) {
-        waitForVisibility(e);
-        e.sendKeys(txt);
+    /**
+     * Send values in mobile element.
+     * @param element
+     * @param txt
+     */
+    public void sendKeys(MobileElement element, String txt) {
+        waitForVisibility(element);
+        element.sendKeys(txt);
     }
 
-    public String getAttribute(MobileElement e, String attribute) {
-        waitForVisibility(e);
-        return e.getAttribute(attribute);
+    /**
+     * Get the attribute of mobile element.
+     * @param element
+     * @param attribute
+     * @return
+     */
+    public String getAttribute(MobileElement element, String attribute) {
+        waitForVisibility(element);
+        return element.getAttribute(attribute);
     }
 
-
-    public void waitForVisibility(MobileElement e) {
+    /**
+     * Wait for visibility of element.
+     * @param element
+     */
+    public void waitForVisibility(MobileElement element) {
         WebDriverWait wait = new WebDriverWait(driver, TestUtils.WAIT);
-        wait.until(ExpectedConditions.visibilityOf(e));
+        wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public void clear(MobileElement e) {
-        waitForVisibility(e);
-        e.clear();
+    /**
+     * Clear the values present in the element.
+     * @param element
+     */
+    public void clear(MobileElement element) {
+        waitForVisibility(element);
+        element.clear();
     }
+    /**
+     * Retrieve the text of the element.
+     * @param element
+     * @return txt
+     */
 
-    public String getText(MobileElement e) {
+    public String getText(MobileElement element) {
         String txt = null;
-        txt = getAttribute(e, "text");
+        txt = getAttribute(element, "text");
         return txt;
     }
 
-    public void tap(MobileElement e) {
-        waitForVisibility(e);
+    /**
+     * Tap the mobile element.
+     * @param element
+     */
+
+    public void tap(MobileElement element) {
+        waitForVisibility(element);
         TouchAction t = new TouchAction(driver);
-        t.tap(ElementOption.element(e)).perform();
+        t.tap(ElementOption.element(element)).perform();
     }
 
+    /**
+     * Swipe the screen.
+     *
+     */
     public static void swipeVertical() {
         Dimension size = driver.manage().window().getSize();
         int startX = size.width / 2;
@@ -189,21 +246,21 @@ public class BaseTest {
                 .perform();
     }
 
-    public void closeApp() {
-        ((InteractsWithApps) driver).closeApp();
-    }
-
-    public void launchApp() {
-        ((InteractsWithApps) driver).launchApp();
-    }
-
+    /**
+     * Scroll to particular mobile element on page using UiScrollable class.
+     *
+     */
     public MobileElement scrollToElementForMonthAndYear(String month) {
         return (MobileElement) ((FindsByAndroidUIAutomator) driver).findElementByAndroidUIAutomator(
                 "new UiScrollable(new UiSelector()" + ".scrollable(true)).scrollIntoView("
                         + "new UiSelector().text(\"" + month + "\"));");
     }
 
-    //Get data from Json file
+    /**
+     * Get the test data from json file.
+     * @param dataFileName pass the test data file path
+     *
+     */
     protected static JSONObject getData(String dataFileName) throws IOException {
         InputStream data = null;
         JSONObject jsonData;
@@ -222,7 +279,11 @@ public class BaseTest {
         return jsonData;
     }
 
-    //Extent Reports Configuration
+    /**
+     * Set the extent report project details.
+     * @param props
+     *
+     */
     public void setExtentReport(Properties props) {
         extent = new ExtentReports(System.getProperty("user.dir") + "/test-output/Extent.html", true);
         extent.addSystemInfo("Device Name", props.getProperty("deviceName"));
@@ -230,6 +291,9 @@ public class BaseTest {
         extent.addSystemInfo("Environment", "Prod");
     }
 
+    /**
+     * Flush and close the report
+     */
     public void endReport() {
         extent.flush();
         extent.close();
@@ -256,7 +320,11 @@ public class BaseTest {
         }
         endReport();
     }
-
+    /**
+     * Get the screenshot file
+     * @param driver
+     * @param screenshotName
+     */
     public String getScreenshot(WebDriver driver, String screenshotName) throws IOException {
         String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
         //TakesScreenshot ts = (TakesScreenshot) driver;
