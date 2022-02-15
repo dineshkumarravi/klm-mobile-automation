@@ -1,0 +1,12 @@
+{
+	"bookAFlight":{
+		"origin":"Aalborg",
+		"destination":"Amsterdam",
+		"travelClass":"Premium Economy",
+		"passengerGroupName": "Adult",
+		"passengersCount": "2",
+		"departureDateInDaysToAdvance": "5",
+		"returnDateInDaysToAdvance": "7",
+		"packageName": "Standard"
+	}
+}

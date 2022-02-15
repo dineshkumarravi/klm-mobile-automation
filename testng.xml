@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" parallel="false">
+    <test name="KLM_Android_Test">
+        <classes>
+            <class name="com.qa.tests.BookAFlightTests"/>
+        </classes>
+    </test>
+</suite> <!-- Suite -->
