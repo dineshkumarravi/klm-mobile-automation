@@ -30,7 +30,7 @@ mvn clean test
   /src/main/resources folder and run as a TestNG suites.
 * We can also run from BookAFlightTests.java file right click on it and run as a TestNG suites.
 
-* **#Report will be generated inside **test-output folder. For test repoert I am using extent report.
+* #Report will be generated inside **test-output folder. For test repoert I am using extent report.
   **Extent.html file will be generated after every run.
   
 * If you want to see any failure report then you have to change id or xpath in BookAFlightTests.java. It will
