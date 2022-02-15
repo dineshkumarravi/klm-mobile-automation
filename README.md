@@ -23,19 +23,20 @@ mvn clean test
 (6) Use adb commands to check device details and retrieve package/activity name
 
 ```
-**(3) run test from different area:**
-  *src/main/java
+**(3) Project Structure:**
+```
+  * src/main/java
     - pages.BookAFlight
     - utils
     -BaseTest
-  *src/main/resources
+  * src/main/resources
     - config.properties 
-  *src/test/java
+  * src/test/java
     - BookAFlightTests
-  *src/test/resources
+  * src/test/resources
        - data
-...
-**(4) run test from different area:** 
+```
+**(4) run test from different area:**
 ```
 * Once we copy this project on local system either we can run the test cases from command line 
   or from any IDE of your preference. In Eclipse IDE we can right click on textng.xml inside 
