@@ -8,7 +8,6 @@ import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import java.io.IOException;
-import java.lang.reflect.Method;
 
 public class BookAFlightTests extends BaseTest {
 
@@ -17,7 +16,7 @@ public class BookAFlightTests extends BaseTest {
     JSONObject flightBookDetails;
 
     @BeforeMethod
-    public void beforeMethod(Method m) throws IOException {
+    public void beforeMethod() throws IOException {
         roundTripPage = new RoundTripPage();
         flightAndPackagePage = new FlightAndPackagePage();
         String dataFileName = "data/BookAFlightTests.json";

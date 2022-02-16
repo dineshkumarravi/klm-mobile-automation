@@ -125,7 +125,7 @@ public class BaseTest {
 
             switch (props.getProperty("platformName")) {
                 case "Android":
-                    //apk package details
+                    //app package details
                     desiredCapabilities.setCapability("automationName", props.getProperty("androidAutomationName"));
                     desiredCapabilities.setCapability("appPackage", props.getProperty("androidAppPackage"));
                     desiredCapabilities.setCapability("appActivity", props.getProperty("androidAppActivity"));
@@ -250,10 +250,10 @@ public class BaseTest {
      * Scroll to particular mobile element on page using UiScrollable class.
      *
      */
-    public MobileElement scrollToElementForMonthAndYear(String month) {
+    public MobileElement scrollToElementByText(String text) {
         return (MobileElement) ((FindsByAndroidUIAutomator) driver).findElementByAndroidUIAutomator(
                 "new UiScrollable(new UiSelector()" + ".scrollable(true)).scrollIntoView("
-                        + "new UiSelector().text(\"" + month + "\"));");
+                        + "new UiSelector().text(\"" + text + "\"));");
     }
 
     /**
@@ -327,10 +327,8 @@ public class BaseTest {
      */
     public String getScreenshot(WebDriver driver, String screenshotName) throws IOException {
         String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-        //TakesScreenshot ts = (TakesScreenshot) driver;
         File source = getDriver().getScreenshotAs(OutputType.FILE);
-        // after execution, you could see a folder "FailedTestsScreenshots"
-        // under src folder
+        // after execution, you could see a folder "FailedTestsScreenshots" under src folder
         String destination = System.getProperty("user.dir") + "/FailedTestsScreenshots/" + screenshotName + dateName
                 + ".jpeg";
         File finalDestination = new File(destination);

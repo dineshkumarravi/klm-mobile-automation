@@ -101,6 +101,7 @@ public class RoundTripPage extends BaseTest {
         for (int i = 0; i < passengerGroup.size(); i++) {
             if (passengerGroup.get(i).getText().contains(passengerGroupName)) {
                 for (int j = 1; j <= count; j++) {
+                    //Click '+' button corresponding to passenger group
                     click(btnAddPassengerGroup.get(i * 2 + 2));
                 }
             }
@@ -124,8 +125,8 @@ public class RoundTripPage extends BaseTest {
     public RoundTripPage chooseDepartureDate(String daysToAdvanceData) {
         int daysToAdvance = Integer.parseInt(daysToAdvanceData);
         click(btnChooseDates);
-        int date = TestUtils.getNextDate(daysToAdvance);
-        List departureElement = driver.findElements(By.xpath("//android.widget.TextView[@text='" + date + "']"));
+        int dateDD = TestUtils.getNextDate(daysToAdvance);
+        List departureElement = driver.findElements(By.xpath("//android.widget.TextView[@text='" + dateDD + "']"));
         click((MobileElement) departureElement.get(0));
         return this;
     }
@@ -137,8 +138,8 @@ public class RoundTripPage extends BaseTest {
      */
     public RoundTripPage chooseReturnDate(String daysToAdvanceData) {
         int daysToAdvance = Integer.parseInt(daysToAdvanceData);
-        int date = TestUtils.getNextDate(daysToAdvance);
-        List returnDateElement = driver.findElements(By.xpath("//android.widget.TextView[@text='" + date + "']"));
+        int dateDD = TestUtils.getNextDate(daysToAdvance);
+        List returnDateElement = driver.findElements(By.xpath("//android.widget.TextView[@text='" + dateDD + "']"));
         click((MobileElement) returnDateElement.get(0));
         click(btnConfirmDates);
         return this;

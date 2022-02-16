@@ -37,11 +37,11 @@ public class FlightAndPackagePage extends BaseTest {
      *
      */
     public FlightAndPackagePage chooseCheapestOutboundFlight() {
-        //get all the prices from the flight list
+        //get all the flight details from the flight list
         waitForVisibility(flightList);
         List flgList = flightList.findElements(By.className("android.view.ViewGroup"));
         System.out.println(flgList.size());
-        //put all the prices into array list and get the lowest prices
+        //gather prices from list and put all the prices into array list and get the lowest prices
         ArrayList<Integer> flightPrices = new ArrayList<Integer>();
         for (int i = 2; i < flgList.size() - 1; i++) {
             MobileElement ele = (MobileElement) flgList.get(i);
