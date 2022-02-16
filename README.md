@@ -36,7 +36,7 @@ mvn clean test
        - data
   * pom.xml - maven dependencies    
 ```
-**(4) run test from different area:**
+**(4) Run test from different area:**
 ```
 * Once we copy this project on local system either we can run the test cases from command line 
   or from any IDE of your preference. In Eclipse IDE we can right click on textng.xml inside 
