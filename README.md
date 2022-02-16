@@ -1,6 +1,6 @@
 
 
-# **KLM - Appium Mobile Test Automation Framework with Page Object model using Selenium with Java, TestNG and Maven** 
+# *KLM - Appium Mobile Test Automation Framework with Page Object model using Selenium with Java, TestNG and Maven** 
 
 **(1) First we have to copy git repository on our local system and below command from command line:**
 
@@ -20,7 +20,6 @@ mvn clean test
      npm install -g appium@1.22.2
 (5) Connect Real android device
 (6) Install KLM app from google playstore
-(6) Use adb commands to check device details and retrieve package/activity name
 
 ```
 **(3) Project Structure:**
