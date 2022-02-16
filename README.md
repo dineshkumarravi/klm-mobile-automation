@@ -34,7 +34,7 @@ mvn clean test
     - BookAFlightTests
   * src/test/resources
        - data
-  *pom.xml - maven dependencies    
+  * pom.xml - maven dependencies    
 ```
 **(4) run test from different area:**
 ```
