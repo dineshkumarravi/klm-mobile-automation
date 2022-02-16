@@ -1,6 +1,6 @@
 
 
-# **KLM - Appium Mobile Test Automation Framework with Page Object model using Selenium with Java, TestNG and Maven** 
+# *KLM - Appium Mobile Test Automation Framework with Page Object model using Appium with Java, TestNG and Maven** 
 
 **(1) First we have to copy git repository on our local system and below command from command line:**
 
@@ -20,7 +20,6 @@ mvn clean test
      npm install -g appium@1.22.2
 (5) Connect Real android device
 (6) Install KLM app from google playstore
-(6) Use adb commands to check device details and retrieve package/activity name
 
 ```
 **(3) Project Structure:**
@@ -28,22 +27,23 @@ mvn clean test
   * src/main/java
     - pages.BookAFlight
     - utils
-    -BaseTest
+    - BaseTest
   * src/main/resources
     - config.properties 
   * src/test/java
     - BookAFlightTests
   * src/test/resources
        - data
+  * pom.xml - maven dependencies    
 ```
-**(4) run test from different area:**
+**(4) Run test from different area:**
 ```
 * Once we copy this project on local system either we can run the test cases from command line 
   or from any IDE of your preference. In Eclipse IDE we can right click on textng.xml inside 
   /src/main/resources folder and run as a TestNG suites.
 * We can also run from BookAFlightTests.java file right click on it and run as a TestNG suites.
 
-* #Report will be generated inside **test-output folder. For test repoert I am using extent report.
+* #Report will be generated inside **test-output folder. For test report I am using extent report.
   **Extent.html file will be generated after every run.
   
 * If you want to see any failure report then you have to change id or xpath in BookAFlightTests.java. It will
