@@ -1,6 +1,6 @@
 
 
-# *KLM - Appium Mobile Test Automation Framework with Page Object model using Appium with Java, TestNG and Maven** 
+# *KLM - Appium Mobile Test Automation Framework with Page Object model using Appium with Java, TestNG and Maven* 
 
 **(1) First we have to copy git repository on our local system and below command from command line:**
 
