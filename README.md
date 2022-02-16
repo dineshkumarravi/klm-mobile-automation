@@ -1,6 +1,6 @@
 
 
-# *KLM - Appium Mobile Test Automation Framework with Page Object model using Selenium with Java, TestNG and Maven** 
+# *KLM - Appium Mobile Test Automation Framework with Page Object model using Appium with Java, TestNG and Maven** 
 
 **(1) First we have to copy git repository on our local system and below command from command line:**
 
@@ -34,6 +34,7 @@ mvn clean test
     - BookAFlightTests
   * src/test/resources
        - data
+  *pom.xml - maven dependencies    
 ```
 **(4) run test from different area:**
 ```
